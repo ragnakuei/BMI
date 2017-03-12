@@ -18,8 +18,8 @@ namespace BMI
 
         public BmiCalculator()
         {
-            BmiGenderCalc.Add(Gender.Male, BmiCalcMale);
-            BmiGenderCalc.Add(Gender.Female, BmiCalcFemale);
+            BmiGenderCalc.Add(Gender.Male, CalcMale);
+            BmiGenderCalc.Add(Gender.Female, CalcFemale);
         }
 
         public string Person(Person person)
@@ -32,14 +32,14 @@ namespace BMI
             return weight / (height * height / 10000);
         }
 
-        private string BmiCalcFemale(Person person)
+        private string CalcFemale(Person person)
         {
             var bmi = BmiCalc(person.Height, person.Weight);
             if (bmi > FemaleUpper) return ResultFat;
             return bmi > FemaleLower ? ResultJust : ResultThin;
         }
 
-        private string BmiCalcMale(Person person)
+        private string CalcMale(Person person)
         {
             var bmi = BmiCalc(person.Height, person.Weight);
             if (bmi > MaleUpper) return ResultFat;
