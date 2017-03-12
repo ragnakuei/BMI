@@ -9,9 +9,9 @@ namespace BMI
         private static readonly double MaleUpper = 25;
         private static readonly double FemaleLower = 18;
         private static readonly double FemaleUpper = 22;
-
-        private static readonly Dictionary<int, string> BmiResult =
-            new Dictionary<int, string>();
+        private static readonly string ResultFat = "太胖";
+        private static readonly string ResultJust = "適中";
+        private static readonly string ResultThin = "太瘦";
 
         private static readonly Dictionary<Gender, Func<Person, string>> BmiGenderCalc =
             new Dictionary<Gender, Func<Person, string>>();
@@ -20,10 +20,6 @@ namespace BMI
         {
             BmiGenderCalc.Add(Gender.Male, BmiCalcMale);
             BmiGenderCalc.Add(Gender.Female, BmiCalcFemale);
-
-            BmiResult.Add(1, "太胖");
-            BmiResult.Add(0, "太瘦");
-            BmiResult.Add(-1, "太瘦");
         }
 
         public static string BMI(this Person person)
@@ -39,17 +35,15 @@ namespace BMI
         private static string BmiCalcFemale(Person person)
         {
             var bmi = BmiCalc(person.Height, person.Weight);
-            if (bmi > FemaleUpper) return BmiResult[1];
-            if (bmi > FemaleLower) return BmiResult[0];
-            return BmiResult[-1];
+            if (bmi > FemaleUpper) return ResultFat;
+            return bmi > FemaleLower ? ResultJust : ResultThin;
         }
 
         private static string BmiCalcMale(Person person)
         {
             var bmi = BmiCalc(person.Height, person.Weight);
-            if (bmi > MaleUpper) return BmiResult[1];
-            if (bmi > MaleLower) return BmiResult[0];
-            return BmiResult[-1];
+            if (bmi > MaleUpper) return ResultFat;
+            return bmi > MaleLower ? ResultJust : ResultThin;
         }
     }
 }
