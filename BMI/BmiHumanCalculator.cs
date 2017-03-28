@@ -1,11 +1,11 @@
 ﻿namespace BMI
 {
 
-    public sealed class BmiPersonCalculator : ABmiCalculator
+    public sealed class BmiHumanCalculator : ABmiCalculator
     {
-        private readonly Person _person;
+        private readonly Human _person;
 
-        public BmiPersonCalculator(Person person)
+        public BmiHumanCalculator(Human person)
         {
             this._person = person;
             DoCalc();

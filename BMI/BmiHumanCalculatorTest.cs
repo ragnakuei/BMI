@@ -3,13 +3,13 @@
 namespace BMI
 {
     [TestClass]
-    public class BmiPersonCalculatorTest
+    public class BmiHumanCalculatorTest
     {
         [TestMethod]
         public void Male_太瘦()
         {
-            var person = new Person(Gender.Male, 170, 55);
-            var target = new BmiPersonCalculator(person);
+            var person = new Human(Gender.Male, 170, 55);
+            var target = new BmiHumanCalculator(person);
 
             var actual = target.Result;
             var expected = MyExtensions.GetEnumDescription(BmiResult.Thin);
@@ -20,8 +20,8 @@ namespace BMI
         [TestMethod]
         public void Male_剛好()
         {
-            var person = new Person(Gender.Male, 170, 70);
-            var target = new BmiPersonCalculator(person);
+            var person = new Human(Gender.Male, 170, 70);
+            var target = new BmiHumanCalculator(person);
 
             var actual = target.Result;
             var expected = MyExtensions.GetEnumDescription(BmiResult.Just);
@@ -32,8 +32,8 @@ namespace BMI
         [TestMethod]
         public void Male_太胖()
         {
-            var person = new Person(Gender.Male, 170, 73);
-            var target = new BmiPersonCalculator(person);
+            var person = new Human(Gender.Male, 170, 73);
+            var target = new BmiHumanCalculator(person);
 
             var actual = target.Result;
             var expected = MyExtensions.GetEnumDescription(BmiResult.Fat);
@@ -46,8 +46,8 @@ namespace BMI
         [TestMethod]
         public void Female_太瘦()
         {
-            var person = new Person(Gender.Female, 165, 48);
-            var target = new BmiPersonCalculator(person);
+            var person = new Human(Gender.Female, 165, 48);
+            var target = new BmiHumanCalculator(person);
 
             var actual = target.Result;
             var expected = MyExtensions.GetEnumDescription(BmiResult.Thin);
@@ -58,8 +58,8 @@ namespace BMI
         [TestMethod]
         public void Female_剛好()
         {
-            var person = new Person(Gender.Female, 165, 55);
-            var target = new BmiPersonCalculator(person);
+            var person = new Human(Gender.Female, 165, 55);
+            var target = new BmiHumanCalculator(person);
 
             var actual = target.Result;
             var expected = MyExtensions.GetEnumDescription(BmiResult.Just);
@@ -70,8 +70,8 @@ namespace BMI
         [TestMethod]
         public void Female_太胖()
         {
-            var person = new Person(Gender.Female, 165, 61);
-            var target = new BmiPersonCalculator(person);
+            var person = new Human(Gender.Female, 165, 61);
+            var target = new BmiHumanCalculator(person);
 
             var actual = target.Result;
             var expected = MyExtensions.GetEnumDescription(BmiResult.Fat);

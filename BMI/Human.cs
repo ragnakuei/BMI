@@ -1,8 +1,8 @@
-namespace BMI
+﻿namespace BMI
 {
-    public class Person
+    public class Human
     {
-        public Person(Gender gender, double height, double weight)
+        public Human(Gender gender, double height, double weight)
         {
             Height = height;
             Weight = weight;
@@ -10,9 +10,7 @@ namespace BMI
         }
 
         public Gender Gender { get; set; }
-
         public double Weight { get; set; }
-
         public double Height { get; set; }
     }
 }
