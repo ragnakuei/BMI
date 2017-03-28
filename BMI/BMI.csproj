@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="ABmiCalculator.cs" />
     <Compile Include="BmiBoundaryAttribute.cs" />
+    <Compile Include="BmiBoundaryAttributeTest.cs" />
     <Compile Include="BmiHumanCalculator.cs" />
     <Compile Include="BmiHumanCalculatorTest.cs" />
     <Compile Include="BMIResult.cs" />

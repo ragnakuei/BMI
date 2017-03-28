@@ -1,22 +1,31 @@
-﻿namespace BMI
-{
-public abstract class ABmiCalculator
-{
-    protected double _upper;
-    protected double _lower;
+﻿using System;
 
-    public double Bmi { get; protected set; }
-    public string Result { get; protected set; }
-
-    protected void DoCalc()
+namespace BMI
+{
+    public abstract class ABmiCalculator
     {
-        SetBmiBoundary();
-        CalcBmi();
-        SetBmiResult();
-    }
+        protected double _upper;
+        protected double _lower;
+        protected Enum _type;
 
-    protected abstract void CalcBmi();
-    protected abstract void SetBmiBoundary();
-    protected abstract void SetBmiResult();
-}
+        public double Bmi { get; protected set; }
+        public string Result { get; protected set; }
+
+        protected void DoCalc()
+        {
+            SetBmiBoundary();
+            CalcBmi();
+            SetBmiResult();
+        }
+
+        protected void SetBmiBoundary()
+        {
+            var bmiBoundary = BmiBoundaryAttribute.Get(this._type);
+            this._upper = bmiBoundary.Upper;
+            this._lower = bmiBoundary.Lower;
+        }
+
+        protected abstract void CalcBmi();
+        protected abstract void SetBmiResult();
+    }
 }

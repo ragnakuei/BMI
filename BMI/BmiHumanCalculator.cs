@@ -8,19 +8,13 @@
         public BmiHumanCalculator(Human person)
         {
             this._person = person;
+            this._type = person.Gender;
             DoCalc();
         }
 
         protected override void CalcBmi()
         {
             Bmi = this._person.Weight / (this._person.Height * this._person.Height / 10000);
-        }
-
-        protected override void SetBmiBoundary()
-        {
-            var bmiBoundary = BmiBoundaryAttribute.Get(this._person.Gender);
-            this._upper = bmiBoundary.Upper;
-            this._lower = bmiBoundary.Lower;
         }
 
         protected override void SetBmiResult()

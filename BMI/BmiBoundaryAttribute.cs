@@ -14,10 +14,9 @@ namespace BMI
             Lower = lower;
         }
 
-        public static BmiBoundaryAttribute Get(Gender value)
+        public static BmiBoundaryAttribute Get(Enum type)
         {
-            FieldInfo fi = value.GetType().GetField(value.ToString());
-
+            FieldInfo fi = type.GetType().GetField(type.ToString());
             return (BmiBoundaryAttribute)fi.GetCustomAttribute(typeof(BmiBoundaryAttribute), false);
         }
     }
