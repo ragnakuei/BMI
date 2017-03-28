@@ -41,8 +41,6 @@ namespace BMI
             Assert.AreEqual(expected, actual);
         }
 
-
-
         [TestMethod]
         public void Female_太瘦()
         {

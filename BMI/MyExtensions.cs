@@ -6,16 +6,11 @@ namespace BMI
 {
     public static class MyExtensions
     {
-        internal static string GetEnumDescription(dynamic input)
+        internal static string GetEnumDescription(Enum input)
         {
-            if (!input.GetType().IsEnum)
-            {
-                throw new ArgumentException("Input type must be an enumerated type");
-            }
-
             FieldInfo data = input.GetType().GetField(input.ToString());
             DescriptionAttribute attribute = (DescriptionAttribute)Attribute.GetCustomAttribute(data, typeof(DescriptionAttribute));
-            return attribute.Description;
+            return attribute?.Description;
         }
     }
 }
