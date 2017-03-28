@@ -25,7 +25,15 @@ namespace BMI
             this._lower = bmiBoundary.Lower;
         }
 
+        protected void SetBmiResult()
+        {
+            Result = (Bmi > this._upper)
+                ? MyExtensions.GetEnumDescription(BmiResult.Fat)
+                : (Bmi > this._lower)
+                    ? MyExtensions.GetEnumDescription(BmiResult.Just)
+                    : MyExtensions.GetEnumDescription(BmiResult.Thin);
+        }
+
         protected abstract void CalcBmi();
-        protected abstract void SetBmiResult();
     }
 }
