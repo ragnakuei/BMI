@@ -12,19 +12,19 @@ namespace BMI
             var target = new BmiHumanCalculator(person);
 
             var actual = target.Result;
-            var expected = MyExtensions.GetEnumDescription(BmiResult.Thin);
+            var expected = "太瘦";
 
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void Male_剛好()
+        public void Male_適中()
         {
             var person = new Human(Gender.Male, 170, 70);
             var target = new BmiHumanCalculator(person);
 
             var actual = target.Result;
-            var expected = MyExtensions.GetEnumDescription(BmiResult.Just);
+            var expected = "適中";
 
             Assert.AreEqual(expected, actual);
         }
@@ -36,7 +36,7 @@ namespace BMI
             var target = new BmiHumanCalculator(person);
 
             var actual = target.Result;
-            var expected = MyExtensions.GetEnumDescription(BmiResult.Fat);
+            var expected = "太胖";
 
             Assert.AreEqual(expected, actual);
         }
@@ -50,19 +50,19 @@ namespace BMI
             var target = new BmiHumanCalculator(person);
 
             var actual = target.Result;
-            var expected = MyExtensions.GetEnumDescription(BmiResult.Thin);
+            var expected = "太瘦";
 
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void Female_剛好()
+        public void Female_適中()
         {
             var person = new Human(Gender.Female, 165, 55);
             var target = new BmiHumanCalculator(person);
 
             var actual = target.Result;
-            var expected = MyExtensions.GetEnumDescription(BmiResult.Just);
+            var expected = "適中";
 
             Assert.AreEqual(expected, actual);
         }
@@ -74,7 +74,7 @@ namespace BMI
             var target = new BmiHumanCalculator(person);
 
             var actual = target.Result;
-            var expected = MyExtensions.GetEnumDescription(BmiResult.Fat);
+            var expected = "太胖";
 
             Assert.AreEqual(expected, actual);
         }
